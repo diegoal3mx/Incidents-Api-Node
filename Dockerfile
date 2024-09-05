@@ -1,6 +1,6 @@
 FROM node:21.6.2 
 
-WORDIR /app
+WORKDIR /app
 
 COPY package*.json ./
  
