@@ -15,7 +15,7 @@ jobs:
       - name: Login to Docker hub
         run: docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKER_PASSWORD }}"
       
-      - name: Build Dokcer Image
+      - name: Build Docker Image
         run: docker build -t djm75913/incidents_api:$${{ github.sha }} .
 
       - name: Tag latest
