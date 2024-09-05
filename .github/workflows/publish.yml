@@ -23,5 +23,5 @@ jobs:
 
       - name: Push Docker Image
         run: |
-        docker push djm75913/incidents_api:$${{ github.sha }}
-        docker push djm75913/incidents_api:latest
+          docker push djm75913/incidents_api:$${{ github.sha }}
+          docker push djm75913/incidents_api:latest
