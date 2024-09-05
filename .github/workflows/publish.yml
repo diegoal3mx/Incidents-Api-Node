@@ -1,4 +1,4 @@
-name: Docker Build & Publish
+name: Docker build & Publish
 
 on:
   push:
@@ -8,18 +8,18 @@ on:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-    steps:
+    steps: 
       - name: Clone code
         uses: actions/checkout@v2
-      
-      - name: Login to Docker hub
+
+      - name: Login to Docker Hub
         run: docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKER_PASSWORD }}"
-      
+
       - name: Build Docker Image
         run: docker build -t djm75913/incidents_api:${{ github.sha }} .
 
       - name: Tag latest
-        run: docker tag -t djm75913/incidents_api:${{ github.sha }}  djm75913/incidents_api:latest
+        run: docker tag djm75913/incidents_api:${{ github.sha }} djm75913/incidents_api:latest
 
       - name: Push Docker Image
         run: |
