@@ -20,7 +20,7 @@ export const emailJob = () => {
               const htmlBody= generateIncidentEmailTemplate(incident.title,incident.description,incident.lat,incident.lng);
 
                 await emailService.sendEmail({
-                    to:"devjdfr@gmail.com",
+                    to:"incidentsapi@tutamail.com",
                     subject:`Incidente: ${incident.title}`,
                     htmlBody:htmlBody
                 });
