@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  incident-api:
+    image:  djm75913/incidents_api:latest
+    container_name: incident-api
+    ports:
+      - "3000:3000"
+    environment:
+      MONGO_URL: ${MONGO_URL_DOCKER}
+      PORT: ${PORT}
+      MAIL_SECRET_KEY: ${MAIL_SECRET_KEY}
+      MAIL_SERVICE: ${MAIL_SERVICE}
+      MAIL_USER: ${MAIL_USER}
+      MAPBOX_ACCESS_TOKEN: ${MAPBOX_ACCESS_TOKEN}
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    container_name: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-volume:/data/db
+
+volumes:
+  mongo-volume:
