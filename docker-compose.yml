@@ -12,7 +12,7 @@ services:
       MAIL_SECRET_KEY: ${MAIL_SECRET_KEY}
       MAIL_SERVICE: ${MAIL_SERVICE}
       MAIL_USER: ${MAIL_USER}
-      MAPBOX_TOKEN: ${MAPBOX_TOKEN}
+      MAPBOX_ACCESS_TOKEN: ${MAPBOX_ACCESS_TOKEN}
   mongo:
     image: mongo
     container_name: mongo
