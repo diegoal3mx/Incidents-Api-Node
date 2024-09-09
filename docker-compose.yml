@@ -5,7 +5,7 @@ services:
     image:  djm75913/incidents_api:latest
     container_name: incident-api
     ports:
-      - "3000:3000"
+      - "3001:3000"
     environment:
       MONGO_URL: ${MONGO_URL_DOCKER}
       PORT: ${PORT}
@@ -20,7 +20,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
     ports:
-      - "27018:27017"
+      - "27017:27017"
     volumes:
       - mongodb_volume:/data/db
 

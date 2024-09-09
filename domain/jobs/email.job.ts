@@ -6,7 +6,7 @@ import { generateIncidentEmailTemplate } from '../templates/email.template';
 export const emailJob = () => {
   const emailService = new EmailService();
 
-  cron.schedule("*/10 * * * * *", async ()=>{
+  cron.schedule("*/10  * * * *", async ()=>{
     try{
       const incidents = await IncidentModel.find({isEmailSent:false});
       if(!incidents.length){
