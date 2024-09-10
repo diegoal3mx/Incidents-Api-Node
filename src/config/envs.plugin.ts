@@ -7,5 +7,6 @@ export const envs = {
   MAIL_SERVICE: env.get("MAIL_SERVICE").required().asString(),
   MAIL_SECRET_KEY: env.get("MAIL_SECRET_KEY").required().asString(),
   MAIL_USER: env.get("MAIL_USER").required().asString(),
+  MAIL_TO: env.get("MAIL_TO").required().asString(),
   MAPBOX_ACCESS_TOKEN: env.get("MAPBOX_ACCESS_TOKEN").required().asString()
 }

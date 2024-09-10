@@ -6,7 +6,7 @@ export class IncidentRoutes{
     const router = Router();
     const controller = new IncidentController();
     router.get("/", controller.getIncidents);
-    router.get("/", controller.getIncidentById);
+    router.get("/:id", controller.getIncidentById);
     router.post("/", controller.createIncident);
     router.put("/:id", controller.updateIncident);
     router.delete("/:id", controller.deleteIncident);

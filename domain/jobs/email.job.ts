@@ -1,12 +1,12 @@
 import cron from 'node-cron'
 import { IncidentModel } from '../../src/data/models/incident.models';
 import { EmailService } from '../services/email.service';
-import { title } from 'process';
 import { generateIncidentEmailTemplate } from '../templates/email.template';
+import { envs } from '../../src/config/envs.plugin';
 export const emailJob = () => {
   const emailService = new EmailService();
 
-  cron.schedule("*/10  * * * *", async ()=>{
+  cron.schedule("*/10 * * * * *", async ()=>{
     try{
       const incidents = await IncidentModel.find({isEmailSent:false});
       if(!incidents.length){
@@ -20,7 +20,7 @@ export const emailJob = () => {
               const htmlBody= generateIncidentEmailTemplate(incident.title,incident.description,incident.lat,incident.lng);
 
                 await emailService.sendEmail({
-                    to:"incidentsapi@tutamail.com",
+                    to: envs.MAIL_TO,
                     subject:`Incidente: ${incident.title}`,
                     htmlBody:htmlBody
                 });

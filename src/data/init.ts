@@ -12,7 +12,7 @@ export class MongoDatabase{
       console.log("Connected to db")
     }
     catch(error){
-      console.log("Error connecting to db")
+      console.log("Error connecting to db",error)
     }
 
   }
